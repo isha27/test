@@ -1,0 +1,58 @@
+extends layout
+body
+   block content
+     script(type="text/javascript")
+        function edit_me(id){
+
+           var url = '/pb_edit'+'/?id='+id;
+            window.location.href= url ;
+           alert(id);
+          }
+        function del_rec() {
+
+            var r =confirm(" Are you sure you want to delete the agent");
+            if(r==true)
+                return true ;
+            else
+                return false ;
+               }
+     #div.header
+        ul
+          li
+               a(href='/agent')   Agent
+          li
+               a(href='/campaign')   Campaign
+          li
+               a(href='/phonebook')  Phonebook
+          li
+               a(href='/reports')    Reports
+
+     #div2.search
+            
+             a(href='/pb_create')
+               input(type='button' , value = 'ADD PHONEBOOK' , onclick='agent_create', href='/pb_create')
+              #div3.table
+                   table(border='2' ,cellspacing ='10', cellpadding ='6' , height='400', width ='500')
+                        tr
+                             td  PhoneBook Name
+                             td  Campaign
+                             td  Enabled 
+                             td  Created
+                          for opt in data
+                            tr
+                                td= opt.pb_name
+                                td= opt.campaign
+                                td= opt.enabled
+                                td= opt.created
+                                td
+                                     input(type='button' ,id= opt._id , value ='Edit' , onclick="edit_me(this.id)" )
+                                
+                                td
+                                    form(action='/pb_delete' , method= 'post', onsubmit="return del_rec()")
+
+                                      input(type="hidden" , value= opt._id  , name="delhere") =opt._id
+                                      input(type='submit' , value = 'Delete', id=opt._id  )
+
+                             br
+                             #div4.footer
+ 

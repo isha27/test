@@ -1,0 +1,33 @@
+extends layout
+block content
+            h1= "Create Agent "
+            form(method='post', name='', action='/agent_submit')
+                        table.form_table(cellspacing='5', cellpadding='5', border='0')
+                                                tbody  #{comment} 
+                                                  
+                                                            tr
+                                                                        td.label Agent Name:
+                                                                        td
+                                                                                    input(rows='5', class='k-textbox', name="agentname")
+                                                            tr
+                                                                        td.label Password:
+                                                                        td
+                                                                                    input(type="password",rows='5', class='k-textbox', name="pass")
+                                                            tr
+                                                                        td.label Confirm Password:
+                                                                        td
+                                                                                    input(type="password",rows='5', class='k-textbox', name="confirmpass")
+                                                            tr
+                                                                        td.label Phone Number:
+                                                                        td
+                                                                                    input(rows='5', class='k-textbox', name="phone")
+                                                            tr
+                                                                        td.label Email-ID :
+                                                                        td
+                                                                                    input(rows='5', class='k-textbox', name="email")
+                                                            tr
+                                                                        td
+                                                                                    br
+                                                                                    input.button1(type='submit', value='Save',id="save",name="save")
+                                                           
+

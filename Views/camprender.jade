@@ -1,0 +1,58 @@
+extends layout
+body
+   block content
+     script(type="text/javascript")
+        function camp(id){
+
+           var url = '/camp_edit'+'/?id='+id;
+           window.location.href= url ;
+          // alert(id);
+          }
+        function del_rec() {
+
+            var r =confirm(" Are you sure you want to delete this campaign");
+            if(r==true)
+                return true ;
+            else
+                return false ;
+               }
+     #div1.header
+       ul
+          li 
+               a(href='/agent')   Agent
+          li 
+               a(href='/campaign')   Campaign
+          li 
+               a(href='/phonebook')  Phonebook
+          li 
+               a(href='/reports')    Reports
+
+     #div2.search           
+             a(href='/campaign_create')
+                input(type='button' , value = 'ADD CAMPAIGN' , onclick='agent_create', href='/campaign_create')
+                br
+                br
+               #div3.table
+                   table(border='2' ,cellspacing ='10', cellpadding ='6' , height='400', width ='500')
+                        tr
+                           td  CampaignName
+                           td  CampaignId
+                           td  Enabled
+                           td  Created
+                          for opt in data
+                              tr
+                                 td= opt.campname
+                                 td= opt.campuid
+                                 td= opt.enabled 
+                                 td= opt.created 
+                                 td
+                                       input(type='button' , value ='Edit' ,id =opt._id, onclick = "camp(this.id)")
+                                 td
+                                   form(action='/camp_delete' , method= 'post', onsubmit="return del_rec()")
+
+                                      input(type="hidden" , value= opt._id  , name="delid") =opt._id
+                                      input(type='submit' , value = 'Delete', id=opt._id  )
+
+                             br
+                             #div4.footer
+

@@ -1,0 +1,38 @@
+html(lang="en")
+ head 
+  body
+   h1 Create Phonebook 
+     br 
+    form(method='post' action='csv_read' enctype="multipart/form-data")
+     table.form_table(cellspacing='5', cellpadding='5', border='0')  
+        tr 
+               td Select Campaign:
+               td
+                 select(name='camp' ,rows='5')
+                   - each opt in data
+                       option(value=opt.campuid)
+                         = opt.campuid
+ 
+                   
+        tr 
+                td  Phonebook Name:
+                td 
+                     input( type='text', name='pbname' ,rows='5')
+        tr 
+                td Scrub : 
+                td 
+                   input(type= 'checkbox' ,name='scrub', rows='5')
+        tr 
+                td Enabled On :
+                td 
+                    input(type="date", name="enabled" ,rows='5') 
+        tr 
+                td Created on :
+                td 
+                    input(type="date", name="dateCreate", rows='5') 
+                
+        tr   
+                td   
+                    input(type='file' ,name='thumb')
+                td 
+                    input(type='submit', value='upload file')    

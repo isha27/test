@@ -1,0 +1,15 @@
+extend layout
+head
+block content
+   form(method='post' action='/agent_del')
+               table.form_table(cellspacing='5', cellpadding='5', border='0')
+                                        tbody  #{comment}
+                                                            tr
+                                                                  td.label Enter Agent Name:
+                                                                  td
+                                                                      input(rows='5', class='k-textbox', name="agentname")
+                                                            tr
+                                                                td
+                                                                    input(type="submit" , value="DELETE")
+
+ 

@@ -1,0 +1,32 @@
+extends layout
+block content
+            h1= "Create Campaign"
+            form(method='post', name='', action='/camp_create')
+                        table.form_table(cellspacing='5', cellpadding='5', border='0')
+                                                tbody  #{comment}
+
+                                                            tr
+                                                                        td.label Campaign Name:
+                                                                        td
+                                                                                    input(rows='5', class='k-textbox', name="campname")
+                                                            tr
+                                                                        td.label Campaign Id :
+                                                                        td
+                                                                                    input(type="text",rows='5', class='k-textbox', name="campuid")
+                                                            tr
+                                                                        td.label Created:
+                                                                        td
+                                                                                    input(type="Date",rows='5', class='k-textbox', name="created")
+                                                            tr
+                                                                        td.label Enabled :
+                                                                        td
+                                                                                    input( type="checkbox", class='k-textbox', name="enabled")
+                                                            tr
+                                                                        td.label Scrub NDNC :
+                                                                        td
+                                                                                    input(type="checkbox" , rows='5', class='k-textbox', name="scrub")
+                                                            tr
+                                                                        td
+                                                                                    br
+                                                                                    input.button1(type='submit', value='Save',id="save",name="save")
+

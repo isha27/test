@@ -1,0 +1,32 @@
+head
+    script.
+       function edit(){
+          var name=document.getElementById('agentname').value;
+          document.getElementById("Aname").value=name;
+           }
+
+block content
+body
+ h1 EDIT AGENT DETAILS
+   form(method='post' action='/agent_update')
+                        table.form_table(cellspacing='5', cellpadding='5', border='0')
+                                                tbody 
+                                                        for dat in data 
+                                                            tr 
+                                                                  input(type="hidden" ,name='url_id' , value=url)                                                            
+                                                            tr
+                                                                  td.label Agent Name:
+                                                                  td
+                                                                      input(rows='5', class='k-textbox', id="aname" ,name="updateagent" , value = dat.name)
+                                                            tr
+                                                                td.label Email:   
+                   
+                                                                td
+                                                                      input(rows='5' , class='k-textbox' , name='updateemail' ,value=dat.email)
+                                                            tr
+                                                               td.label Phone Number : 
+                                                               td
+                                                                      input(rows='5' , class='k-textbox' , name='updatephone' , value= dat.phone)
+                                                            tr 
+                                                                td 
+                                                                      input(type='submit' , value='Save' )

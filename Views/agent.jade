@@ -1,0 +1,30 @@
+!!! 5
+html(lang="en")
+  head
+    title = title
+    script.
+       function nest(){
+         alert("ishaaaaaa");}
+body
+block content 
+             form(method='post' action='/agent_create')
+              input(type='submit', value= 'ADD Agent', name='submit',align='right')
+             form(method='post' action='/edit_agent')
+               input(type='submit', value= 'EDIT Agent')
+             form(method='post' action='/agent_delete')
+               input(type='submit', value= 'Delete Agent')
+             form(method='post' name='render' action='/render') 
+              p SELECT CAMPAIGN :
+               table
+                thead
+                  tr
+                    th Name
+                    th Email
+                  tbody 
+                   if(docs) 
+                     p #{docs.email}
+                     p #{docs.name}
+                    td  input(type='button', value='Edit')
+                     td name 
+                     td email
+                    input(type='submit' ,value='click')           

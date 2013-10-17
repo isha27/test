@@ -1,0 +1,25 @@
+!!! 5
+html(lang="en")
+  head
+    title "Test"
+    script.
+       function nest(){
+        document.getElementById("gold").innerHTML="hellooooooooo";
+         document.getElementById("isha").innerHTML="hellooooooooo";
+        alert("ishaaaaaaaaaaaaaaaa");
+         var x=" ";
+           for(var i=0;i<5;i++)
+            {
+               x=x+i+"<br>";
+             }
+        document.getElementById("count").innerHTML=x;
+           }
+    body
+      input(type="button" , onclick="nest()")
+       br
+      p#gold
+      div#isha 
+      br
+      p#count       
+           
+

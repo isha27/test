@@ -1,0 +1,42 @@
+head
+    script.
+       function edit(){
+         // var name=document.getElementById('agentname').value;
+        //  document.getElementById("Aname").value=name;
+           }
+
+block content
+body
+ h1 EDIT
+   form(method='post' action='/camp_update')
+                        table.form_table(cellspacing='5', cellpadding='5', border='0')
+                                                tbody
+                                                        for dat in data
+                                                            tr
+                                                                  input(type="hidden" ,name='url_id' , value=url)                                                            
+                                                             tr
+                                                                       td Select Campaign:
+                                                                       td
+                                                                          select(name='updatecamp' ,rows='5')
+                                                                            - each opt in drop
+                                                                                   option(value=opt.campuid)
+                                                                                        = opt.campuid
+                                                            
+                                                            tr
+                                                                 td.label Phonebook Name:
+                                                                  td
+                                                                      input(rows='5', class='k-textbox', id="aname" ,name="updatepb" , value = dat.pb_name)
+
+                                                            tr
+                                                               td.label Scrub :
+                                                               td
+                                                                      input(type="checkbox" , rows='5' , class='k-textbox' , name='scrub' , value= dat.scrub_ndnc)
+                                                            tr
+                                                               td.label Enabled :
+                                                               td
+                                                                      input(type="checkbox" , rows='5' , class='k-textbox' , name='enable' , value= dat.enabled)
+
+                                                            tr
+                                                               td
+                                                                      input(type='submit' , value='Save' )
+

@@ -1,0 +1,59 @@
+extends layout
+body
+   block content 
+     script(type="text/javascript")
+        function nest(id){
+          
+           var url = '/agent_edit'+'/?id='+id;
+           window.location.href= url ;
+          // alert(id);
+          }
+        function del_rec() {
+             
+            var r =confirm(" Are you sure you want to delete the agent");
+            if(r==true) 
+                return true ;
+            else 
+                return false ; 
+               }      
+     #div.header
+       ul
+          li
+               a(href='/agent')   Agent
+          li
+               a(href='/campaign')   Campaign 
+          li 
+               a(href='/phonebook')  Phonebook
+          li 
+               a(href='/reports')    Reports
+     
+        
+     #div2.search
+             a(href='/agent_create') 
+               input(type='button' , value = 'ADD AGENT' , onclick='agent_create', href='/agent_create')
+              #div3.table
+                   table(border='2' ,cellspacing ='10', cellpadding ='6' , height='400', width ='500') 
+                        tr
+                             td  AgentName
+                             td  Campaign
+                             td  Email 
+                             td  Phone
+                        for opt in data
+                           tr
+                                td= opt.name
+                                td= campaign
+                                td= opt.email
+                                td= opt.phone
+                                // td(id="mongoo")= opt._id
+                                td
+       
+                                     input(type='button' ,id=opt._id ,  value ='Edit' , onclick="nest(this.id)")
+                                td
+                                   form(action='/delete_agent' , method= 'post', onsubmit="return del_rec()") 
+                                      
+                                      input(type="hidden" , value= opt._id  , name="delhere") =opt._id
+                                      input(type='submit' , value = 'Delete', id=opt._id  )
+                             br
+                             #div4.footer
+
+
